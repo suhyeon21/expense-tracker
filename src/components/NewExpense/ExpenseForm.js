@@ -42,9 +42,11 @@ const ExpenseForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
+    //amount에 숫자가 들어오도록 + 추가
+
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
@@ -90,6 +92,9 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
